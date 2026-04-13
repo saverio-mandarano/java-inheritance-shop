@@ -47,7 +47,11 @@ public class Main {
         // System.out.println(iphone16.getName());
         // iphone16.setName("iphone16-pro");
         // System.out.println(iphone16.getName());
-        System.out.println(iphone16);
+        // System.out.println(iphone16);
+
+        Television samsungTv = new Television("samsungTV", "samsung", "ultimo modello samsung tv", iva, price, true,
+                27);
+        System.out.println(samsungTv);
     }
 
 }
