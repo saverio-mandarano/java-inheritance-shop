@@ -7,7 +7,7 @@ public class Main {
 
         String description = "Figurina del cane di Paperino";
         BigDecimal iva = new BigDecimal(0.22);
-        BigDecimal price = new BigDecimal(100.015);
+        BigDecimal price = new BigDecimal(990.015);
 
         Product pluto = new Product("pluto", "Nike", description, iva, price);
         Product paperino = new Product();
@@ -51,7 +51,11 @@ public class Main {
 
         Television samsungTv = new Television("samsungTV", "samsung", "ultimo modello samsung tv", iva, price, true,
                 27);
-        System.out.println(samsungTv);
+        // System.out.println(samsungTv);
+
+        Headphones jbl = new Headphones("jbl-wh720", "jbl", "jbl cancella rumore", iva, price, "black", true);
+        System.out.println(jbl);
+        System.out.println(jbl.getPrice());
     }
 
 }
