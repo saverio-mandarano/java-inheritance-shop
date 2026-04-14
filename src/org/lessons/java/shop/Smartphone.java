@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Smartphone extends Product {
     // Smarphone, caratterizzati anche dal codice IMEI e dalla quantità di memoria
@@ -48,5 +49,30 @@ public class Smartphone extends Product {
     @Override
     public String toString() {
         return super.toString() + "\nIMEI code: " + getImeiCode() + "\nGB di memoria: " + getGbMemory();
+    }
+
+    // Per gli Smartphone, lo sconto è del 5% se la quantità di memoria è inferiore
+    // a 32GB, altrimenti rimane del 2%..
+    @Override
+    public BigDecimal getFinalPrice(boolean loyaltyCard) {
+
+        if (loyaltyCard) {
+
+            // BigDecimal discount = new BigDecimal("0.02");
+
+            BigDecimal discount;
+            if (getGbMemory() < 32) {
+                discount = new BigDecimal("0.05");
+            } else {
+
+                discount = new BigDecimal("0.02");
+            }
+
+            return getPricePlusIva()
+                    .subtract(getPricePlusIva().multiply(discount))
+                    .setScale(2, RoundingMode.DOWN);
+        }
+        return getPricePlusIva();
+
     }
 }

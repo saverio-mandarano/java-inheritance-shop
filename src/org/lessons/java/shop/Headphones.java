@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Headphones extends Product {
     private String color;
@@ -40,6 +41,30 @@ public class Headphones extends Product {
     @Override
     public String toString() {
         return super.toString() + "\nisWirless: " + isWirless() + "\ncolor: " + getColor();
+    }
+
+    // Per le Cuffie lo sconto è del 7% se sono cablate, altrimenti rimane del 2%.
+    @Override
+    public BigDecimal getFinalPrice(boolean loyaltyCard) {
+
+        if (loyaltyCard) {
+
+            // BigDecimal discount = new BigDecimal("0.02");
+
+            BigDecimal discount;
+            if (!isWirless()) {
+                discount = new BigDecimal("0.07");
+            } else {
+
+                discount = new BigDecimal("0.02");
+            }
+
+            return getPricePlusIva()
+                    .subtract(getPricePlusIva().multiply(discount))
+                    .setScale(2, RoundingMode.DOWN);
+        }
+        return getPricePlusIva();
+
     }
 
 }

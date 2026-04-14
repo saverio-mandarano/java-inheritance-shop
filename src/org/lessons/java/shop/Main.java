@@ -5,12 +5,13 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
 
-        // String description = "Figurina del cane di Paperino";
+        String description = "Figurina del cane di Paperino";
         BigDecimal iva = new BigDecimal(0.22);
-        BigDecimal price = new BigDecimal(90.015);
+        BigDecimal price = new BigDecimal(99.99);
 
-        // Product pluto = new Product("pluto", "Nike", description, iva, price);
-        // Product paperino = new Product();
+        Product pluto = new Product("pluto", "Nike", description, iva, price);
+        System.out.println(pluto);
+        System.out.println(pluto.getDiscountedPrice());
 
         // getter
         // System.out.println("name = " + pluto.getName());

@@ -70,7 +70,7 @@ public class Product {
     }
 
     // metodo per avere il prezzo base
-    BigDecimal getPrice() {
+    public BigDecimal getPrice() {
         if (price != null) {
             return this.price.setScale(2, RoundingMode.DOWN);
         }
@@ -115,9 +115,28 @@ public class Product {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return getSlug();
+    public BigDecimal getFinalPrice(boolean loyaltyCard) {
+        if (price != null && iva != null) {
+            if (loyaltyCard) {
+
+                BigDecimal discount = new BigDecimal("0.02");
+                return getPricePlusIva()
+                        .subtract(getPricePlusIva().multiply(discount))
+                        .setScale(2, RoundingMode.DOWN);
+            }
+            return getPricePlusIva();
+
+        }
+        return null;
     }
 
+    @Override
+    public String toString() {
+        // return getSlug();
+        return String.format("Slug: %s \nBrand: %s \nPrice: %s euro + %s IVA \nTotal= %s euro",
+                getSlug(),
+                this.brand,
+                getPrice().setScale(2, RoundingMode.DOWN), getIva().setScale(2, RoundingMode.DOWN),
+                getPricePlusIva());
+    }
 }

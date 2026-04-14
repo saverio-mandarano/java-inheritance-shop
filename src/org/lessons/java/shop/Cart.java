@@ -75,13 +75,23 @@ public class Cart {
             System.err.println("////////////////");
 
         }
-        input.close();
         System.out.println("Ecco il tuo carrelo: ");
 
         for (int i = 0; i < product.length; i++) {
             System.out.println(product[i]);
             System.out.println("--------------");
         }
+
+        // Calcolo il prezzo totale del carrello
+        System.out.println("Hai un classe fedeltà ? TRUE or False");
+        boolean loyaltyCard = Boolean.parseBoolean(input.nextLine());
+        input.close();
+
+        BigDecimal total = BigDecimal.ZERO;
+        for (int i = 0; i < product.length; i++) {
+            total = total.add(product[i].getFinalPrice(loyaltyCard));
+        }
+        System.out.println("Totale carrello: " + total);
 
     }
 
