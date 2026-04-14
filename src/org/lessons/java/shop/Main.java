@@ -5,12 +5,12 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
 
-        String description = "Figurina del cane di Paperino";
+        // String description = "Figurina del cane di Paperino";
         BigDecimal iva = new BigDecimal(0.22);
-        BigDecimal price = new BigDecimal(990.015);
+        BigDecimal price = new BigDecimal(90.015);
 
-        Product pluto = new Product("pluto", "Nike", description, iva, price);
-        Product paperino = new Product();
+        // Product pluto = new Product("pluto", "Nike", description, iva, price);
+        // Product paperino = new Product();
 
         // getter
         // System.out.println("name = " + pluto.getName());
@@ -43,19 +43,22 @@ public class Main {
         // System.out.println("pluto-code= " + pluto.getCode());
 
         // inheritance
-        Smartphone iphone16 = new Smartphone("iphone", "apple", "ultimo iphone", price, iva, "123456789012345", 32);
+        // Smartphone iphone16 = new Smartphone("iphone", "apple", "ultimo iphone",
+        // price, iva, "123456789012345", 32);
         // System.out.println(iphone16.getName());
         // iphone16.setName("iphone16-pro");
         // System.out.println(iphone16.getName());
         // System.out.println(iphone16);
 
-        Television samsungTv = new Television("samsungTV", "samsung", "ultimo modello samsung tv", iva, price, true,
-                27);
+        // Television samsungTv = new Television("samsungTV", "samsung", "ultimo modello
+        // samsung tv", iva, price, true,
+        // 27);
         // System.out.println(samsungTv);
 
-        Headphones jbl = new Headphones("jbl-wh720", "jbl", "jbl cancella rumore", iva, price, "black", true);
-        System.out.println(jbl);
-        System.out.println(jbl.getPrice());
+        // Headphones jbl = new Headphones("jbl-wh720", "jbl", "jbl cancella rumore",
+        // iva, price, "black", true);
+        // System.out.println(jbl);
+        // System.out.println(jbl.getPrice());
     }
 
 }

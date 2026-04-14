@@ -28,14 +28,14 @@ public class Smartphone extends Product {
     }
 
     // costruttore
-    public Smartphone(String name, String brand, String description, BigDecimal price, BigDecimal iva, String imeiCode,
+    public Smartphone(String name, String brand, String description, BigDecimal price, String imeiCode,
             int gbMemory) {
 
-        super(name, brand, description, iva, price);
+        super(name, brand, description, price);
 
-        if (imeiCode == null || imeiCode.length() != 15) {
-            throw new IllegalArgumentException("IMEI deve essere di 15 caratteri");
-        }
+        // if (imeiCode == null || imeiCode.length() != 15) {
+        // throw new IllegalArgumentException("IMEI deve essere di 15 caratteri");
+        // }
 
         if (gbMemory <= 0) {
             throw new IllegalArgumentException("GB memory non valida");

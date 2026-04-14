@@ -30,9 +30,9 @@ public class Headphones extends Product {
     // return this.isWirless;
     // }
 
-    public Headphones(String name, String brand, String description, BigDecimal iva, BigDecimal price, String color,
+    public Headphones(String name, String brand, String description, BigDecimal price, String color,
             boolean isWirless) {
-        super(name, brand, description, iva, price);
+        super(name, brand, description, price);
         this.color = color;
         this.isWirless = isWirless;
     }

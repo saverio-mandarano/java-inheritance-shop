@@ -8,10 +8,10 @@ public class Television extends Product {
     private int screenSize;
     private boolean isSmart;
 
-    public Television(String name, String brand, String description, BigDecimal iva, BigDecimal price, boolean isSmart,
+    public Television(String name, String brand, String description, BigDecimal price, boolean isSmart,
             int screenSize) {
 
-        super(name, brand, description, iva, price);
+        super(name, brand, description, price);
 
         if (screenSize < 0) {
             throw new IllegalArgumentException("screenSize errata");

@@ -25,6 +25,19 @@ public class Product {
         this.iva = iva;
     }
 
+    public Product(String name, String brand, String description, BigDecimal price) {
+        // alla creazione nuovo prodotto il codice è valorizzato con un numero random
+        Random r = new Random();
+        int max = 10000000;
+        this.code = r.nextInt(max);
+
+        this.name = name;
+        this.description = description;
+        this.brand = brand;
+        this.price = price;
+        this.iva = new BigDecimal("0.22");
+    }
+
     public Product() {
         // alla creazione nuovo prodotto il codice è valorizzato con un numero random
         Random r = new Random();
@@ -57,7 +70,7 @@ public class Product {
     }
 
     // metodo per avere il prezzo base
-    public BigDecimal getPrice() {
+    BigDecimal getPrice() {
         if (price != null) {
             return this.price.setScale(2, RoundingMode.DOWN);
         }
